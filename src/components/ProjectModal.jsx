@@ -39,7 +39,8 @@ const ProjectModal = ({ project, onClose }) => {
             margin-bottom: 0.75rem !important;
           }
           .video-container {
-            height: 180px !important;
+            height: auto !important;
+            min-height: 200px;
             margin-bottom: 1rem !important;
           }
           .close-button {
@@ -138,8 +139,8 @@ const ProjectModal = ({ project, onClose }) => {
           
           <div className="video-container" style={{ 
             width: '100%', 
-            height: '300px', 
-            background: 'var(--color-bg)', 
+            minHeight: '300px',
+            background: '#000', 
             marginBottom: '2rem', 
             borderRadius: '8px',
             display: 'flex',
@@ -152,7 +153,7 @@ const ProjectModal = ({ project, onClose }) => {
             {/* ÁREA DO VÍDEO: Se houver uma URL de vídeo válida, exibe um iframe ou tag de vídeo. Caso contrário, exibe a imagem ou placeholder. */}
             {project.videoUrl && project.videoUrl !== 'PLACEHOLDER_VIDEO_URL' ? (
               project.videoUrl.match(/\.(mp4|webm|ogg)$/) ? (
-                <video width="100%" height="100%" controls style={{ borderRadius: '8px' }}>
+                <video controls style={{ maxWidth: '100%', maxHeight: '60vh', borderRadius: '8px' }}>
                   <source src={project.videoUrl} type="video/mp4" />
                   Seu navegador não suporta a tag de vídeo.
                 </video>
