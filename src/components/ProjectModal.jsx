@@ -121,10 +121,12 @@ const ProjectModal = ({ project, onClose }) => {
           borderRadius: '16px',
           width: '100%',
           maxWidth: '800px',
-          maxHeight: '90vh',
+          maxHeight: '85vh',
           overflowY: 'auto',
           position: 'relative',
-          boxShadow: '0 0 50px rgba(0, 191, 255, 0.2)'
+          boxShadow: '0 0 50px rgba(0, 191, 255, 0.2)',
+          display: 'flex',
+          flexDirection: 'column'
         }}
       >
         <button
@@ -134,7 +136,7 @@ const ProjectModal = ({ project, onClose }) => {
           <X size={24} />
         </button>
 
-        <div style={{ padding: '2rem' }} className="modal-inner">
+        <div style={{ padding: '2rem', paddingBottom: '3rem' }} className="modal-inner">
           <h2 className="modal-title" style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--color-heading)' }}>{project.title}</h2>
           
           <div className="video-container" style={{ 
