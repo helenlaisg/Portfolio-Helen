@@ -121,12 +121,14 @@ const ProjectModal = ({ project, onClose }) => {
           borderRadius: '16px',
           width: '100%',
           maxWidth: '800px',
+          width: '90%',
           maxHeight: '85vh',
           overflowY: 'auto',
           position: 'relative',
           boxShadow: '0 0 50px rgba(0, 191, 255, 0.2)',
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          margin: 'auto'
         }}
       >
         <button
