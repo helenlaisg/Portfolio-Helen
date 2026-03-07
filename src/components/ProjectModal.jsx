@@ -35,7 +35,7 @@ const ProjectModal = ({ project, onClose }) => {
           }
           .modal-title {
             font-size: 1.3rem !important;
-            padding-right: 30px;
+            padding-right: 40px !important;
             margin-bottom: 0.75rem !important;
           }
           .video-container {
@@ -44,10 +44,10 @@ const ProjectModal = ({ project, onClose }) => {
             margin-bottom: 1rem !important;
           }
           .close-button {
-            top: 10px !important;
-            right: 10px !important;
-            width: 32px !important;
-            height: 32px !important;
+            top: 8px !important;
+            right: 8px !important;
+            width: 28px !important;
+            height: 28px !important;
           }
           .tech-tag {
             font-size: 0.75rem !important;
@@ -74,22 +74,23 @@ const ProjectModal = ({ project, onClose }) => {
         /* Estilos do botão de fechar */
         .close-button {
           position: absolute;
-          top: 20px;
-          right: 20px;
+          top: 15px;
+          right: 15px;
           background: var(--color-card-bg);
           border: none;
           color: var(--color-heading);
           cursor: pointer;
           z-index: 10;
           border-radius: 50% !important;
-          width: 40px;
-          height: 40px;
+          width: 32px;
+          height: 32px;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: background 0.3s;
           outline: none !important;
           -webkit-tap-highlight-color: transparent;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
         
         .close-button:focus {
@@ -120,32 +121,29 @@ const ProjectModal = ({ project, onClose }) => {
           border: '1px solid var(--color-primary)',
           borderRadius: '16px',
           width: '100%',
-          maxWidth: '800px',
+          maxWidth: '550px',
           width: '90%',
-          maxHeight: '85vh',
+          maxHeight: '80vh',
           overflowY: 'auto',
           position: 'relative',
-          boxShadow: '0 0 50px rgba(0, 191, 255, 0.2)',
-          display: 'flex',
-          flexDirection: 'column',
-          margin: 'auto'
+          boxShadow: '0 0 50px rgba(0, 191, 255, 0.2)'
         }}
       >
         <button
           onClick={onClose}
           className="close-button"
         >
-          <X size={24} />
+          <X size={20} />
         </button>
 
-        <div style={{ padding: '2rem', paddingBottom: '3rem' }} className="modal-inner">
-          <h2 className="modal-title" style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--color-heading)' }}>{project.title}</h2>
+        <div style={{ padding: '1.25rem' }} className="modal-inner">
+          <h2 className="modal-title" style={{ fontSize: '1.5rem', marginBottom: '0.75rem', color: 'var(--color-heading)', paddingRight: '3rem' }}>{project.title}</h2>
           
           <div className="video-container" style={{ 
             width: '100%', 
-            minHeight: '300px',
+            minHeight: '200px',
             background: '#000', 
-            marginBottom: '2rem', 
+            marginBottom: '1rem', 
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
@@ -157,7 +155,7 @@ const ProjectModal = ({ project, onClose }) => {
             {/* ÁREA DO VÍDEO: Se houver uma URL de vídeo válida, exibe um iframe ou tag de vídeo. Caso contrário, exibe a imagem ou placeholder. */}
             {project.videoUrl && project.videoUrl !== 'PLACEHOLDER_VIDEO_URL' ? (
               project.videoUrl.match(/\.(mp4|webm|ogg)$/) ? (
-                <video controls style={{ maxWidth: '100%', maxHeight: '60vh', borderRadius: '8px' }}>
+                <video controls style={{ maxWidth: '100%', maxHeight: '35vh', borderRadius: '8px' }}>
                   <source src={project.videoUrl} type="video/mp4" />
                   Seu navegador não suporta a tag de vídeo.
                 </video>
