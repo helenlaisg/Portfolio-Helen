@@ -31,7 +31,7 @@ Portfólio pessoal com animações, tema claro/escuro, modal de projetos, certif
 
 ## � Sobre o Projeto
 
-Este portfólio foi desenvolvido para apresentar de forma clara e visual a minha trajetória como desenvolvedora, reunindo **formação acadêmica**, **certificações**, **experiências**, **habilidades**, **projetos** e **projetos externos**, com foco em uma interface moderna e responsiva.
+Este portfólio foi desenvolvido para apresentar de forma clara e visual a minha trajetória como desenvolvedora, reunindo **formação acadêmica**, **certificações**, **experiências**, **habilidades**, **projetos pessoais** e **projetos externos**, com foco em uma interface moderna e responsiva.
 
 Principais objetivos:
 - Centralizar informações profissionais em um único lugar
