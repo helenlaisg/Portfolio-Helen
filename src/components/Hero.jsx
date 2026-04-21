@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, GraduationCap } from 'lucide-react';
 import AbstractProfile from './AbstractProfile';
 
 const Hero = () => {
+  const lattesUrl = 'https://lattes.cnpq.br/9677125252408820';
   return (
     <section id="hero" className="section hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '80px' }}>
       <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
@@ -47,6 +48,17 @@ const Hero = () => {
               style={{ border: '1px solid var(--color-text-muted)', color: 'var(--color-text)' }}
             >
               Baixar CV <Download size={18} />
+            </motion.a>
+            <motion.a
+              href={lattesUrl}
+              className="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ border: '1px solid var(--color-text-muted)', color: 'var(--color-text)' }}
+            >
+              Currículo Lattes <GraduationCap size={18} />
             </motion.a>
           </div>
         </motion.div>

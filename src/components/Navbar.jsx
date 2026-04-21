@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, GraduationCap } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,6 +45,8 @@ const Navbar = () => {
     { name: 'Externos', href: '#external-projects' },
     { name: 'Contato', href: '#contact' },
   ];
+
+  const lattesUrl = 'https://lattes.cnpq.br/9677125252408820';
 
   const handleLinkClick = (e, href) => {
     e.preventDefault();
@@ -132,15 +134,27 @@ const Navbar = () => {
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          <a
-            href="/cv/Currículo_HelenLais_Atualizado.pdf"
-            className="btn btn-primary"
-            style={{ padding: '8px 20px', fontSize: '0.85rem' }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Currículo
-          </a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <a
+              href="/cv/Currículo_HelenLais_Atualizado.pdf"
+              className="btn btn-primary"
+              style={{ padding: '8px 20px', fontSize: '0.85rem' }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Currículo
+            </a>
+            <a
+              href={lattesUrl}
+              className="btn btn-secondary"
+              style={{ padding: '8px 20px', fontSize: '0.85rem' }}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Currículo Lattes"
+            >
+              Lattes <GraduationCap size={16} />
+            </a>
+          </div>
         </div>
 
         {/* Mobile Toggle & Theme */}
@@ -211,6 +225,15 @@ const Navbar = () => {
                 rel="noopener noreferrer"
               >
                 Currículo
+              </a>
+              <a
+                href={lattesUrl}
+                className="btn btn-secondary"
+                style={{ width: '100%', justifyContent: 'center' }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Currículo Lattes <GraduationCap size={18} />
               </a>
             </div>
           </motion.div>
