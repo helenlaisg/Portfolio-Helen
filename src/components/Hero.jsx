@@ -25,7 +25,7 @@ const Hero = () => {
             Desenvolvedora Full-Stack
           </h3>
           <p style={{ maxWidth: '600px', fontSize: '1.1rem', color: 'var(--color-text-muted)', marginBottom: '3rem' }}>
-            Especializada no ecossistema PHP & Laravel. Transformo ideias em sistemas robustos e interfaces dinâmicas utilizando JavaScript, HTML5 e CSS3.
+            Especialista no ecossistema PHP & Laravel. Transformo ideias em sistemas robustos e interfaces dinâmicas utilizando JavaScript, HTML5 e CSS3.
           </p>
           
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
@@ -38,8 +38,10 @@ const Hero = () => {
               Ver Projetos <ArrowRight size={18} />
             </motion.a>
             <motion.a 
-              href="/cv.pdf" 
+              href="/cv/Currículo_HelenLais_Atualizado.pdf"
               className="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{ border: '1px solid var(--color-text-muted)', color: 'var(--color-text)' }}

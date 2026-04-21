@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import { X, Github, ExternalLink } from 'lucide-react';
 
 const ProjectModal = ({ project, onClose }) => {
-  return (
+  useEffect(() => {
+    const prevOverflow = document.body.style.overflow;
+    const prevPaddingRight = document.body.style.paddingRight;
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = 'hidden';
+    if (scrollBarWidth > 0) document.body.style.paddingRight = `${scrollBarWidth}px`;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPaddingRight;
+    };
+  }, [onClose]);
+
+  const modal = (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -17,7 +39,7 @@ const ProjectModal = ({ project, onClose }) => {
         height: '100%',
         background: 'var(--color-overlay)',
         backdropFilter: 'blur(10px)',
-        zIndex: 1000,
+        zIndex: 9999,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -120,11 +142,11 @@ const ProjectModal = ({ project, onClose }) => {
           background: 'var(--color-bg-secondary)',
           border: '1px solid var(--color-primary)',
           borderRadius: '16px',
-          width: '100%',
           maxWidth: '550px',
           width: '90%',
           maxHeight: '80vh',
           overflowY: 'auto',
+          overscrollBehavior: 'contain',
           position: 'relative',
           boxShadow: '0 0 50px rgba(0, 191, 255, 0.2)'
         }}
@@ -215,6 +237,9 @@ const ProjectModal = ({ project, onClose }) => {
       </motion.div>
     </motion.div>
   );
+
+  if (typeof document === 'undefined') return null;
+  return createPortal(modal, document.body);
 };
 
 export default ProjectModal;

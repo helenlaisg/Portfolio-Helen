@@ -7,8 +7,8 @@ const experiences = [
     id: 1,
     role: "Técnico em Programação",
     company: "Hospital das Forças Armadas (HFA)",
-    period: "Jul de 2025 – Presente",
-    description: "Responsável pela evolução do Sistema de Gestão de Pessoas (SGP) utilizando PHP 8 e Laravel. Atuo no desenvolvimento de módulos estratégicos, automação de processos governamentais e gestão de bancos de dados MySQL/SQLite. Foco em alta performance, segurança de dados sensíveis e refatoração de sistemas legados para escalabilidade."
+    period: "Jul de 2025 – Abr de 2026",
+    description: "Responsável pela evolução do Sistema de Gestão de Pessoas (SGP) utilizando PHP 8 e Laravel. Atuei no desenvolvimento de módulos estratégicos, automação de processos governamentais e gestão de bancos de dados MySQL/SQLite. Foco em alta performance, segurança de dados sensíveis e refatoração de sistemas legados para escalabilidade."
   },
   {
     id: 2,
@@ -109,7 +109,7 @@ const Experience = () => {
                   e.currentTarget.style.borderColor = 'var(--color-border)';
                 }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1rem' }}>
                     <div>
                       <h3 style={{ fontSize: '1.5rem', color: 'var(--color-heading)', marginBottom: '0.5rem' }}>{exp.role}</h3>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-primary)' }}>
@@ -117,7 +117,7 @@ const Experience = () => {
                         <span style={{ fontWeight: '500' }}>{exp.company}</span>
                       </div>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-muted)', fontSize: '0.9rem', background: 'var(--color-card-bg)', padding: '4px 12px', borderRadius: '20px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-muted)', fontSize: '0.9rem', background: 'var(--color-card-bg)', padding: '6px 12px', borderRadius: '20px', width: 'fit-content' }}>
                       <Calendar size={14} />
                       <span>{exp.period}</span>
                     </div>

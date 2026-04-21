@@ -5,7 +5,10 @@ import { Menu, X, Sun, Moon } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'dark';
+    return localStorage.getItem('theme') || 'dark';
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,20 +20,18 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
-    // Theme initialization
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
+    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
 
   const navLinks = [
@@ -129,8 +130,14 @@ const Navbar = () => {
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          <a href="/cv.pdf" className="btn btn-primary" style={{ padding: '8px 20px', fontSize: '0.85rem' }}>
-            Resume
+          <a
+            href="/cv/Currículo_HelenLais_Atualizado.pdf"
+            className="btn btn-primary"
+            style={{ padding: '8px 20px', fontSize: '0.85rem' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Currículo
           </a>
         </div>
 
@@ -194,8 +201,14 @@ const Navbar = () => {
                   {link.name}
                 </motion.a>
               ))}
-              <a href="/cv.pdf" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                Resume
+              <a
+                href="/cv/Currículo_HelenLais_Atualizado.pdf"
+                className="btn btn-primary"
+                style={{ width: '100%', justifyContent: 'center' }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Currículo
               </a>
             </div>
           </motion.div>

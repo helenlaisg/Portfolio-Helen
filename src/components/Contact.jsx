@@ -40,7 +40,7 @@ const Contact = () => {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch (_error) {
       setStatus('error');
     }
   };
@@ -101,7 +101,7 @@ const Contact = () => {
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '1rem', color: 'var(--color-heading)' }}>Minhas Redes</h4>
                 <div style={{ display: 'flex', gap: '1.5rem' }}>
                   <a 
-                    href="https://github.com/helen2411" 
+                    href="https://github.com/helenlaisg" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     style={{ 
@@ -129,7 +129,7 @@ const Contact = () => {
                   </a>
                   
                   <a 
-                    href="https://www.linkedin.com/in/helen-la%C3%ADs-6658b4297/" 
+                    href="https://www.linkedin.com/in/helenlaisg/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     style={{ 
