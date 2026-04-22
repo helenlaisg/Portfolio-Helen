@@ -36,7 +36,7 @@ const projects = [
     title: 'Outros Projetos & Repositórios',
     tech: ['Open Source', 'Full Stack', 'Frontend', 'Backend'],
     description: 'Explore mais projetos no meu GitHub! Lá você encontrará diversos repositórios públicos, estudos e aplicações em desenvolvimento. Sinta-se à vontade para explorar, clonar e contribuir.',
-    repoLink: 'https://github.com/helen2411?tab=repositories',
+    repoLink: 'https://github.com/helenlaisg',
     demoLink: '#',
     videoUrl: 'PLACEHOLDER_VIDEO_URL' // Insira a URL do vídeo aqui
   }
