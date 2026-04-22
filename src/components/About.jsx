@@ -1,41 +1,48 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const rgMask = { top: '56%', left: '18%', width: '64%', height: '7%' };
+
 const certifications = [
   {
     id: 1,
     title: 'Full-Stack Developer',
     issuer: 'Certificação',
     period: 'Gran Faculdade',
-    imageUrl: '/certificacoes/Certificado_Full-Stack_Developer.png'
+    imageUrl: '/certificacoes/Certificado_Full-Stack_Developer.png',
+    rgMask
   },
   {
     id: 2,
     title: 'Front-end Developer',
     issuer: 'Certificação',
     period: 'Gran Faculdade',
-    imageUrl: '/certificacoes/Certificado_Front_end_Developer.png'
+    imageUrl: '/certificacoes/Certificado_Front_end_Developer.png',
+    rgMask
   },
   {
     id: 3,
     title: 'Back-End Developer',
     issuer: 'Certificação',
     period: 'Gran Faculdade',
-    imageUrl: '/certificacoes/Certificado_Back-End_Developer.png'
+    imageUrl: '/certificacoes/Certificado_Back-End_Developer.png',
+    rgMask
   },
   {
     id: 4,
     title: 'Project Manager',
     issuer: 'Certificação',
     period: 'Gran Faculdade',
-    imageUrl: '/certificacoes/Certificado_Project_Manager.png'
+    imageUrl: '/certificacoes/Certificado_Project_Manager.png',
+    rgMask
   },
   {
     id: 5,
     title: 'Técnico em Administração',
     issuer: 'Certificação',
     period: 'Escola Técnica de Ceilândia',
-    imageUrl: '/certificacoes/Certificado_Técnica_em_Administracao.png'
+    imageUrl: '/certificacoes/Certificado_Técnica_em_Administracao.png',
+    rgMask
   }
 ];
 
@@ -247,6 +254,22 @@ const About = () => {
                           display: 'block'
                         }}
                       />
+                      {cert.rgMask && (
+                        <div
+                          style={{
+                            position: 'absolute',
+                            top: cert.rgMask.top,
+                            left: cert.rgMask.left,
+                            width: cert.rgMask.width,
+                            height: cert.rgMask.height,
+                            backdropFilter: 'blur(12px)',
+                            background: 'rgba(0, 0, 0, 0.35)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            borderRadius: '8px',
+                            pointerEvents: 'none'
+                          }}
+                        />
+                      )}
                     </div>
 
                     <div style={{ padding: '1.25rem' }}>
@@ -349,20 +372,37 @@ const About = () => {
               </div>
 
               <div style={{ padding: '1rem', background: '#000' }}>
-                <img
-                  src={
-                    activeCert.imageUrl ||
-                    'https://placehold.co/1400x900/001F3F/00BFFF?text=Certificado'
-                  }
-                  alt={activeCert.title}
-                  style={{
-                    width: '100%',
-                    maxHeight: '55vh',
-                    objectFit: 'contain',
-                    display: 'block',
-                    borderRadius: '10px'
-                  }}
-                />
+                <div style={{ position: 'relative', borderRadius: '10px', overflow: 'hidden' }}>
+                  <img
+                    src={
+                      activeCert.imageUrl ||
+                      'https://placehold.co/1400x900/001F3F/00BFFF?text=Certificado'
+                    }
+                    alt={activeCert.title}
+                    style={{
+                      width: '100%',
+                      maxHeight: '55vh',
+                      objectFit: 'contain',
+                      display: 'block'
+                    }}
+                  />
+                  {activeCert.rgMask && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: activeCert.rgMask.top,
+                        left: activeCert.rgMask.left,
+                        width: activeCert.rgMask.width,
+                        height: activeCert.rgMask.height,
+                        backdropFilter: 'blur(12px)',
+                        background: 'rgba(0, 0, 0, 0.35)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderRadius: '10px',
+                        pointerEvents: 'none'
+                      }}
+                    />
+                  )}
+                </div>
               </div>
             </motion.div>
           </motion.div>
